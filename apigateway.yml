@@ -59,7 +59,7 @@ spring:
           uri: lb://TRANSACTION-SERVICE
           predicates:
             - Path=/transaction-service/**
-            - Method=GET
+            - Method=GET, POST, PUT, DELETE
           filters:
             - RemoveRequestHeader=Cookie
             - RewritePath=/transaction-service/(?<segment>.*), /$\{segment}
