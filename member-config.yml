@@ -2,19 +2,22 @@ server:
   port: 0
 
 spring:
-  application:
-    name: member-service
-
-  h2:
-    console:
-      enabled: true
-      settings:
-        web-allow-others: true
-      path: /h2-console
   datasource:
-    driver-class-name: org.h2.Driver
-    url: jdbc:h2:mem:testdb
-#    username:sa
+    url: jdbc:mysql://localhost:3306/oio
+    username: root
+    password: 1234
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL8Dialect
+    hibernate:
+      ddl-auto: update
+
+  application:
+     name: member-service
+
 
 eureka:
   instance:
@@ -23,4 +26,32 @@ eureka:
     register-with-eureka: true
     fetch-registry: true
     service-url:
-      defaultZone: http://localhost:8761/eureka
+      defaultZone: http://192.168.1.86:8761/eureka
+
+
+
+security:
+  jwt:
+    token:
+      access-key: example_token
+      expire-length: 8640000
+      refresh-key: example_token
+
+cloud:
+  aws:
+    region:
+      static: ap-northeast-2
+    s3:
+      bucket: oio-bucket
+    stack:
+      auto: false
+    credentials:
+      secret-key: lyv1EWFNd9j0+KKfZ3yH9LgCCy160EzZhLq5Mk25
+      access-key: AKIAYH2KJWQOIK7U6OOV
+
+
+coolsms:
+  api:
+    key: NCSEXSJU5QEVJZKC
+    secret: 1FFHT8UBJCXXT72FYJT6U2ZHE88H1Z5E
+    fromnumber: 01027089439
