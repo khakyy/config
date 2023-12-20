@@ -18,7 +18,7 @@ spring:
       routes:
           # COMPOSITION SERVICE #
         - id: composition-service
-          uri: lb://COMPOSITION-SERVICE
+          uri: lb://http://192.168.1.37:9999/COMPOSITION-SERVICE
           predicates:
             - Path=/oio/**
             - Method=GET, POST, PUT, DELETE
