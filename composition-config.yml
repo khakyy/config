@@ -4,6 +4,9 @@ server:
 spring:
   application:
     name: composition-service
+  jackson:
+    serialization:
+      fail-on-empty-beans: false
 
 eureka:
   instance:
