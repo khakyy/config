@@ -20,6 +20,7 @@ spring:
           '[/**]':
             allowedOrigins:
              - "http://192.168.1.86:5173"
+             - "http://192.168.1.74:5173"
             allow-credentials: true   
             allowedHeaders:
               - x-requested-with
